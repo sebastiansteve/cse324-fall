@@ -20,13 +20,14 @@ const app = express();
 
 // Route setup. You can implement more in the future!
 // Team Activities
-const ta01Routes = require('./routes/ta01');
-const ta02Routes = require('./routes/ta02');
-const ta03Routes = require('./routes/ta03'); 
-const ta04Routes = require('./routes/ta04'); 
+const ta01Routes = require('./routes/Team/ta01');
+const ta02Routes = require('./routes/Team/ta02');
+const ta03Routes = require('./routes/Team/ta03'); 
+const ta04Routes = require('./routes/Team/ta04'); 
 
 // Prove Actives
-const pr01Routes = require('./routes/pr01'); 
+const pr01Routes = require('./routes/Prove/pr01'); 
+const pr02Routes = require('./routes/Prove/pr02');
 
 app.use(express.static(path.join(__dirname, 'public')))
    .set('views', path.join(__dirname, 'views'))
@@ -42,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')))
    .use('/ta03', ta03Routes) 
    .use('/ta04', ta04Routes)
    .use('/pr01', pr01Routes)
+   .use('/pr02', pr02Routes)
    .get('/', (req, res, next) => {
      // This is the primary index, always handled last. 
      res.render('pages/index', {title: 'Welcome to my CSE341 repo', path: '/'});
