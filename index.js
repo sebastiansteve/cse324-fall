@@ -29,6 +29,9 @@ const ta04Routes = require('./routes/Team/ta04');
 const pr01Routes = require('./routes/Prove/pr01'); 
 const pr02Routes = require('./routes/Prove/pr02');
 
+//Class Activites
+const we03Routes = require('./routes/Class/we03/routes');
+
 app.use(express.static(path.join(__dirname, 'public')))
    .set('views', path.join(__dirname, 'views'))
    .set('view engine', 'ejs')
@@ -38,12 +41,16 @@ app.use(express.static(path.join(__dirname, 'public')))
    //.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})) // For handlebars
    //.set('view engine', 'hbs')
    .use(bodyParser({extended: false})) // For parsing the body of a POST
+   // Team
    .use('/ta01', ta01Routes)
    .use('/ta02', ta02Routes) 
    .use('/ta03', ta03Routes) 
    .use('/ta04', ta04Routes)
+   // Prove
    .use('/pr01', pr01Routes)
    .use('/pr02', pr02Routes)
+   // Class Activities
+   .use('/we03', we03Routes)
    .get('/', (req, res, next) => {
      // This is the primary index, always handled last. 
      res.render('pages/index', {title: 'Welcome to my CSE341 repo', path: '/'});
