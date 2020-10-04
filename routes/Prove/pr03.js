@@ -1,9 +1,12 @@
-//TA04 PLACEHOLDER
+//TA03 PLACEHOLDER
 const express = require('express');
+
+const ta03Controller = require('../../controllers/Team/ta03');
+
 const router = express.Router();
 
-const ta03Controller = require('../../controllers/Prove/pr03');
+router.get('/', ta03Controller.ta03);
 
-router.get('/',ta03Controller.pr03);
+router.post('/search', ta03Controller.search);
 
 module.exports = router;
