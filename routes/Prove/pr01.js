@@ -1,24 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/',(req, res, next) => {
-    res.render('pages/pr01/form', { 
-        title: 'Prove Activity 01', 
-        path: '/pr01', // For pug, EJS 
-        activeTA03: true, // For HBS
-        contentCSS: true, // For HBS
-    });
-});
+const pr01Controller = require('../../controllers/Prove/pr01');
 
-router.post('/submit',(req, res, next) => {
-    res.render('pages/pr01/pr01', { 
-        title: 'Prove Activity 01', 
-        path: '/pr01', // For pug, EJS 
-        activeTA03: true, // For HBS
-        contentCSS: true, // For HBS
-        input1: req.body.i1,
-        input2: req.body.i2,
-    });
-});
+router.get('/',pr01Controller.pr01Get);
+
+router.post('/submit',pr01Controller.pr01Post);
 
 module.exports = router;
