@@ -11,7 +11,7 @@ exports.ta03 = (req, res, next) => {
 };
 
 exports.search = (req, res, next) => {
-    const searchName = reg.body.searchName;
+    const searchName = req.body.tag;
     Product.getItemsByTag(searchName, products => {
         res.render('pages/Team/ta03', {
             title: 'Search Results',

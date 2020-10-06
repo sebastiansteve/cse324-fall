@@ -1,6 +1,6 @@
-const Product = require('../../models/product')
+const Product = require('../../models/project')
 
-exports.ta03 = (req, res, next) => {
+exports.pr03 = (req, res, next) => {
     Product.fetchAll(products => {
         res.render('pages/Prove/pr03', {
             title: 'Prove 03',
@@ -11,7 +11,7 @@ exports.ta03 = (req, res, next) => {
 };
 
 exports.search = (req, res, next) => {
-    const searchName = reg.body.searchName;
+    const searchName = req.body.tag;
     Product.getItemsByTag(searchName, products => {
         res.render('pages/Prove/pr03', {
             title: 'Search Results',
