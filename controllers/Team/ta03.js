@@ -1,4 +1,4 @@
-const Product = require('../../models/product')
+const Product = require('../../models/products')
 
 exports.ta03 = (req, res, next) => {
     Product.fetchAll(products => {
